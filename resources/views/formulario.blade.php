@@ -11,7 +11,7 @@
     <!-- así se incluye TOM SELECT al proyecto para darle la parte visual -->
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
 
-    {{-- este es el css del tp, está en public/css --}}
+    <!-- {{-- este es el css del tp, está en public/css --}} -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
@@ -24,7 +24,7 @@
             @csrf
             {{-- acá va lo del buscador con las listas de productos
             pluggin: optgroup y remove_button --}}
-            <input type="text" id="buscador-productos" placeholder=" 🔎︎ Buscá tus productos..."
+            <input type="text" id="buscador-productos"
                 class="form-control">
 
             <hr>
@@ -42,7 +42,7 @@
                     plugin: clear_button -->
                 <div class="mb-3">
                     <label for="select-almacen" class="form-label">Almacén <i><small>(Clear Button)</small></i>:</label>
-                    <select id="select-almacen" multiple autocomplete="off" class="form-select"></select>
+                    <select id="select-almacen" multiple autocomplete="off" class="form-select select-almacen"></select>
                 </div>
 
                 <!-- 3. verduras
@@ -53,7 +53,7 @@
                 </div>
 
                 <!-- 4. frutas
-                    plugin: dropdown_header y render para fotos-->
+                    plugin: dropdown_header-->
                 <div class="mb-3">
                     <label for="select-frutas" class="form-label">Frutas <i><small>(Dropdown
                                 Header)</small></i>:</label>
@@ -65,14 +65,17 @@
                 <div class="mb-3">
                     <label for="select-carnes" class="form-label">Carnes <i><small>(Restore on
                                 Backspace)</small></i>:</label>
-                    <select id="select-carnes" multiple autocomplete="off" class="form-select"></select>
+                    <select id="select-carnes" multiple autocomplete="off" class="form-select select-carnes"></select>
                 </div>
 
                 <!-- 6. limpieza
                     plugin: autogrow -->
                 <div class="mb-3">
-                    <label for="select-limpieza" class="form-label">Limpieza <i><small>(Autogrow)</small></i>:</label>
-                    <select id="select-limpieza" multiple autocomplete="off" class="form-select"></select>
+                    <div class="d-inline-block">
+                        <label for="select-limpieza" class="form-label">Limpieza
+                            <i><small>(Autogrow)</small></i>:</label>
+                        <select id="select-limpieza" multiple autocomplete="off" class="form-select"></select>
+                    </div>
                 </div>
             </div>
 
@@ -89,9 +92,12 @@
     </div>
 
     <!-- acá van los scripts de BOOTSTRAP -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    {{-- así se incluye TOM SELECT al proyecto para darle la logica a los plugins --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+
+    <!-- {{-- así se incluye TOM SELECT al proyecto para darle la logica a los plugins --}} -->
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script src="{{ asset('js/js.js') }}"></script>
 </body>

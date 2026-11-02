@@ -19,14 +19,18 @@ h1 {
     margin-bottom: 20px;
 }
 
-h2, h3 {
+h2,
+h3 {
     color: #444444;
     text-align: center;
     margin-top: 25px;
     margin-bottom: 15px;
 }
 
-h1, h2, h3, h6 {
+h1,
+h2,
+h3,
+h6 {
     text-align: center;
 }
 
@@ -45,13 +49,44 @@ hr {
     margin: 30px 0;
 }
 
-#p-footer{
+#p-footer {
     font-size: 12px;
     text-align: center;
     color: #5d5e5f;
 }
 
 
- /* -------------------------------- para lo de tom select ------------------------------ */
+/* -------------------------------- para lo de tom select ------------------------------ */
 
- /* COMENTARIO DE CARO: algún select podría tener color de fondo, o alguna imagen así que dejo este espacio para que no nos olvidemos */
+.producto-opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.producto-opcion img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.producto-opcion small {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+/* background color solo para un select */
+.ts-wrapper.select-carnes .ts-dropdown {
+    background-color: rgb(163, 101, 101);
+    color: white;
+}
+
+/* background image para un solo select */
+.ts-wrapper.select-almacen .ts-dropdown {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), /*esto es para la transparencia de la imagen*/
+        url('fondo.png');
+    background-size: cover;
+    background-position: center;
+}

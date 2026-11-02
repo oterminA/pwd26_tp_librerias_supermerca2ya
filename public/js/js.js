@@ -1,71 +1,108 @@
-document.addEventListener("DOMContentLoaded", function () {
-    //////para el buscador con listas
+document.addEventListener("DOMContentLoaded", async function () {
+    //para el buscador general y mostrar las fotos de los productos
+    try {
+        const respuesta = await fetch("/data/productos.json");
+        if (!respuesta.ok) {
+            throw new Error("No se encontró productos.json (HTTP " + respuesta.status + ")");
+        }
+        const productos = await respuesta.json();
 
-    ///COMENTARIO DE CARO: falta la logica para que se vean los elementos que tenemos en el json pero para poder armar el formulario tuve que poner esto acá que es el ejemplo que da tom select
-    new TomSelect("#buscador-productos", {
-        options: [
-            { id: 'avenger', make: 'dodge', model: 'Avenger' },
-            { id: 'caliber', make: 'dodge', model: 'Caliber' },
-            { id: 'caravan-grand-passenger', make: 'dodge', model: 'Caravan Grand Passenger' },
-            { id: 'challenger', make: 'dodge', model: 'Challenger' },
-            { id: 'ram-1500', make: 'dodge', model: 'Ram 1500' },
-            { id: 'viper', make: 'dodge', model: 'Viper' },
-            { id: 'a3', make: 'audi', model: 'A3' },
-            { id: 'a6', make: 'audi', model: 'A6' },
-            { id: 'r8', make: 'audi', model: 'R8' },
-            { id: 'rs-4', make: 'audi', model: 'RS 4' },
-            { id: 's4', make: 'audi', model: 'S4' },
-            { id: 's8', make: 'audi', model: 'S8' },
-            { id: 'tt', make: 'audi', model: 'TT' },
-            { id: 'avalanche', make: 'chevrolet', model: 'Avalanche' },
-            { id: 'aveo', make: 'chevrolet', model: 'Aveo' },
-            { id: 'cobalt', make: 'chevrolet', model: 'Cobalt' },
-            { id: 'silverado', make: 'chevrolet', model: 'Silverado' },
-            { id: 'suburban', make: 'chevrolet', model: 'Suburban' },
-            { id: 'tahoe', make: 'chevrolet', model: 'Tahoe' },
-            { id: 'trail-blazer', make: 'chevrolet', model: 'TrailBlazer' },
-        ],
-        // esto indica las categorias que tenemos que tener: almacen, limpieza, etc
-        optgroups: [
-            { $order: 3, id: 'dodge', name: 'Dodge' },
-            { $order: 2, id: 'audi', name: 'Audi' },
-            { $order: 1, id: 'chevrolet', name: 'Chevrolet' }
-        ],
-        labelField: 'model',
-        valueField: 'id',
-        optgroupField: 'make',
-        optgroupLabelField: 'name',
-        optgroupValueField: 'id',
-        lockOptgroupOrder: true,
-        searchField: ['model'],
-        plugins: ['optgroup_columns, remove_button'], //acá se hizo combinación de PLUGINS!
-        openOnFocus: false
-    });
+        const opciones = productos.map(function (producto) {
+            return {
+                ...producto,
+                id: String(producto.id)
+            };
+        });
 
-    //////para los demás select
+        function mostrarProducto(data, escape) {
+            return `<div class="producto-opcion">
+                <img src="${escape(data.imagen)}" alt="" width="32" height="32">
+                <span>${escape(data.nombre)}</span>
+                <small>$${Number(data.precio).toLocaleString("es-AR")}</small>
+            </div>`;
+        }
 
-new TomSelect('#select-frescos', {
-        plugins: ['remove_button', 'drag_drop'] //acá se hizo combinación de PLUGINS!
-    });
+        const configuracionBase = {
+            valueField: "id",
+            labelField: "nombre",
+            searchField: ["nombre"],
+            options: opciones,
+            render: { option: mostrarProducto, item: mostrarProducto },
+            maxItems: null
+        };
 
-    new TomSelect('#select-almacen', {
-        plugins: ['clear_button']
-    });
+        new TomSelect("#buscador-productos", {
+            ...configuracionBase,
+            optgroups: [
+                { id: "frescos", nombre: "Frescos" },
+                { id: "frutas_verduras", nombre: "Frutas y verduras" },
+                { id: "carnes", nombre: "Carnes" },
+                { id: "limpieza", nombre: "Limpieza" },
+                { id: "almacen", nombre: "Almacén" }
+            ],
+            optgroupField: "categoria",
+            optgroupLabelField: "nombre",
+            optgroupValueField: "id",
+            lockOptgroupOrder: true,
+            plugins: ["optgroup_columns", "remove_button"],
+            placeholder: "🔎︎ Buscá tus productos...",
+            openOnFocus: false
+        });
 
-    new TomSelect('#select-verduras', {
-        plugins: ['remove_button', 'checkbox_options']//acá se hizo combinación de PLUGINS!
-    });
+        function opcionesDe(categoria) {
+            return opciones.filter(function (producto) {
+                return producto.subcategoria === categoria;
+            });
+        }
 
-    new TomSelect('#select-frutas', {
-        plugins: ['dropdown_header'],
-        dropdownHeader: { title: 'Seleccioná una fruta' }
-    });
+        //para los otros select
 
-    new TomSelect('#select-carnes', {
-        plugins: ['remove_button', 'restore_on_backspace'] //acá se hizo combinación de PLUGINS!
-    });
+        new TomSelect("#select-frescos", {
+            ...configuracionBase,
+            options: opcionesDe("frescos"),
+            plugins: ["remove_button", "drag_drop"]
+        });
 
-    new TomSelect('#select-limpieza', {
-        plugins: ['remove_button', 'autogrow'] //acá se hizo combinación de PLUGINS!
-    });
+        new TomSelect("#select-almacen", {
+            ...configuracionBase,
+            options: opcionesDe("almacen"),
+            plugins: ["clear_button"]
+        });
+
+        new TomSelect("#select-verduras", {
+            ...configuracionBase,
+            options: opcionesDe("verduras"),
+            plugins: {
+		'checkbox_options': {
+			'checkedClassNames':   ['ts-checked'],
+			'uncheckedClassNames': ['ts-unchecked'],
+		}
+	},
+        });
+
+        new TomSelect("#select-frutas", {
+            ...configuracionBase,
+            options: opcionesDe("frutas"),
+            plugins: {
+                'dropdown_header': {
+                    title: 'Este es el HEADER de frutas'
+                }
+            }
+        });
+
+        new TomSelect("#select-carnes", {
+            ...configuracionBase,
+            options: opcionesDe("carnes"),
+            plugins: ["remove_button", "restore_on_backspace"]
+        });
+
+        new TomSelect("#select-limpieza", {
+            ...configuracionBase,
+            options: opcionesDe("limpieza"),
+            plugins: ["remove_button", "input_autogrow"]
+        });
+
+    } catch (error) {
+        console.error("Error al cargar los productos:", error);
+    }
 });

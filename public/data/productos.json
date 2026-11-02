@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "nombre": "Leche",
+    "categoria": "frescos",
+    "subcategoria": "frescos",
+    "precio": 1800,
+    "imagen": "/images/productos/leche_entera.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Yogur",
+    "categoria": "frescos",
+    "subcategoria": "frescos",
+    "precio": 2300,
+    "imagen": "/images/productos/yogur_natural.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Queso",
+    "categoria": "frescos",
+    "subcategoria": "frescos",
+    "precio": 4900,
+    "imagen": "/images/productos/queso_tybo.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Manteca",
+    "categoria": "frescos",
+    "subcategoria": "frescos",
+    "precio": 2700,
+    "imagen": "/images/productos/manteca.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Crema de leche",
+    "categoria": "frescos",
+    "subcategoria": "frescos",
+    "precio": 2450,
+    "imagen": "/images/productos/crema_leche.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Banana",
+    "categoria": "frutas_verduras",
+    "subcategoria": "frutas",
+    "precio": 2850,
+    "imagen": "/images/productos/banana.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Manzana",
+    "categoria": "frutas_verduras",
+    "subcategoria": "frutas",
+    "precio": 3000,
+    "imagen": "/images/productos/manzana_red.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Naranja",
+    "categoria": "frutas_verduras",
+    "subcategoria": "frutas",
+    "precio": 2000,
+    "imagen": "/images/productos/naranja.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Limón",
+    "categoria": "frutas_verduras",
+    "subcategoria": "frutas",
+    "precio": 1600,
+    "imagen": "/images/productos/limon.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Frutilla",
+    "categoria": "frutas_verduras",
+    "subcategoria": "frutas",
+    "precio": 4300,
+    "imagen": "/images/productos/frutilla.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Tomate",
+    "categoria": "frutas_verduras",
+    "subcategoria": "verduras",
+    "precio": 2200,
+    "imagen": "/images/productos/tomate.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Cebolla",
+    "categoria": "frutas_verduras",
+    "subcategoria": "verduras",
+    "precio": 1800,
+    "imagen": "/images/productos/cebolla.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Lechuga",
+    "categoria": "frutas_verduras",
+    "subcategoria": "verduras",
+    "precio": 1900,
+    "imagen": "/images/productos/lechuga.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Papa",
+    "categoria": "frutas_verduras",
+    "subcategoria": "verduras",
+    "precio": 1750,
+    "imagen": "/images/productos/papa_blanca.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Zanahoria",
+    "categoria": "frutas_verduras",
+    "subcategoria": "verduras",
+    "precio": 1800,
+    "imagen": "/images/productos/zanahoria.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Carne picada",
+    "categoria": "carnes",
+    "subcategoria": "carnes",
+    "precio": 9800,
+    "imagen": "/images/productos/carne_picada.jpg"
+  },
+  {
+    "id": 17,
+    "nombre": "Bife",
+    "categoria": "carnes",
+    "subcategoria": "carnes",
+    "precio": 12500,
+    "imagen": "/images/productos/bife_chorizo.jpg"
+  },
+  {
+    "id": 18,
+    "nombre": "Pollo",
+    "categoria": "carnes",
+    "subcategoria": "carnes",
+    "precio": 8700,
+    "imagen": "/images/productos/pechuga.jpg"
+  },
+  {
+    "id": 19,
+    "nombre": "Asado",
+    "categoria": "carnes",
+    "subcategoria": "carnes",
+    "precio": 10900,
+    "imagen": "/images/productos/asado_tira.jpg"
+  },
+  {
+    "id": 20,
+    "nombre": "Bondiola",
+    "categoria": "carnes",
+    "subcategoria": "carnes",
+    "precio": 9900,
+    "imagen": "/images/productos/bondiola.jpg"
+  },
+  {
+    "id": 21,
+    "nombre": "Lavandina",
+    "categoria": "limpieza",
+    "subcategoria": "limpieza",
+    "precio": 2300,
+    "imagen": "/images/productos/lavandina.jpg"
+  },
+  {
+    "id": 22,
+    "nombre": "Limpiador multiuso",
+    "categoria": "limpieza",
+    "subcategoria": "limpieza",
+    "precio": 3100,
+    "imagen": "/images/productos/limpiador_multiuso.jpg"
+  },
+  {
+    "id": 23,
+    "nombre": "Jabón para ropa",
+    "categoria": "limpieza",
+    "subcategoria": "limpieza",
+    "precio": 4500,
+    "imagen": "/images/productos/jabon_liquido_ropa.jpg"
+  },
+  {
+    "id": 24,
+    "nombre": "Suavizante",
+    "categoria": "limpieza",
+    "subcategoria": "limpieza",
+    "precio": 2800,
+    "imagen": "/images/productos/suavizante_ropa.jpg"
+  },
+  {
+    "id": 25,
+    "nombre": "Detergente",
+    "categoria": "limpieza",
+    "subcategoria": "limpieza",
+    "precio": 1900,
+    "imagen": "/images/productos/detergente.jpg"
+  },
+  {
+    "id": 26,
+    "nombre": "Arroz",
+    "categoria": "almacen",
+    "subcategoria": "almacen",
+    "precio": 2200,
+    "imagen": "/images/productos/arroz_fino.jpg"
+  },
+  {
+    "id": 27,
+    "nombre": "Fideos",
+    "categoria": "almacen",
+    "subcategoria": "almacen",
+    "precio": 1700,
+    "imagen": "/images/productos/tallarines.jpg"
+  },
+  {
+    "id": 28,
+    "nombre": "Aceite",
+    "categoria": "almacen",
+    "subcategoria": "almacen",
+    "precio": 4200,
+    "imagen": "/images/productos/aceite.jpg"
+  },
+  {
+    "id": 29,
+    "nombre": "Harina",
+    "categoria": "almacen",
+    "subcategoria": "almacen",
+    "precio": 1450,
+    "imagen": "/images/productos/harina.jpg"
+  },
+  {
+    "id": 30,
+    "nombre": "Azúcar",
+    "categoria": "almacen",
+    "subcategoria": "almacen",
+    "precio": 1600,
+    "imagen": "/images/productos/azucar.jpg"
+  }
+]
