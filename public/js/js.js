@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>`;
         }
 
-        const configuracionBase = {
+        const configuracionBase = { //objeto js creado para no repetir codigo en cada bloque de inicialización de tom select, estos son los datos que se usan en cada selector
             valueField: "id",
             labelField: "nombre",
             searchField: ["nombre"],
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             lockOptgroupOrder: true,
             plugins: ["optgroup_columns", "remove_button"],
             placeholder: "🔎︎ Buscá tus productos...",
-            openOnFocus: false
+            openOnFocus: true
         });
 
         function opcionesDe(categoria) {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
         }
 
-        //para los otros select
+        //acá están los otros select, se podian colocar todos juntos en un solo bloque y recorrerlo pero cada selector requiere una experiencia de usuario y un conjunto de plugins específicos entonces separarlos nos permitió personalizar el comportamiento de forma individual, por lo que ponerlos individuales es una decisión de diseño
 
         new TomSelect("#select-frescos", {
             ...configuracionBase,
@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             ...configuracionBase,
             options: opcionesDe("verduras"),
             plugins: {
-		'checkbox_options': {
-			'checkedClassNames':   ['ts-checked'],
-			'uncheckedClassNames': ['ts-unchecked'],
-		}
-	},
+                'checkbox_options': {
+                    'checkedClassNames': ['ts-checked'],
+                    'uncheckedClassNames': ['ts-unchecked'],
+                }
+            },
         });
 
         new TomSelect("#select-frutas", {
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         new TomSelect("#select-carnes", {
             ...configuracionBase,
             options: opcionesDe("carnes"),
-            plugins: ["remove_button", "restore_on_backspace"]
+            plugins: ["remove_button", "restore_on_backspace"] //este plugin hace que al presionar la tecla Backspace para eliminar un elemento seleccionado, el texto de dicho elemento se vuelva a colocar dentro del campo de entrada (input) para que se pueda editar en lugar de borrarlo por completo
         });
 
         new TomSelect("#select-limpieza", {

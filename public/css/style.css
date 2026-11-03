@@ -56,6 +56,7 @@ hr {
 }
 
 
+
 /* -------------------------------- para lo de tom select ------------------------------ */
 
 .producto-opcion {
@@ -85,7 +86,8 @@ hr {
 /* background image para un solo select */
 .ts-wrapper.select-almacen .ts-dropdown {
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), /*esto es para la transparencia de la imagen*/
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+        /*esto es para la transparencia de la imagen*/
         url('fondo.png');
     background-size: cover;
     background-position: center;
