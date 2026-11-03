@@ -20,12 +20,11 @@
     <div class="container mt-5 contenedor-gral">
         <h1> Supermerca2YA 🍎</h1>
 
-        <form action="#" method="POST">
+        <form action="{{ route('compra.procesar') }}" method="POST">
             @csrf
             {{-- acá va lo del buscador con las listas de productos
             pluggin: optgroup y remove_button --}}
-            <input type="text" id="buscador-productos"
-                class="form-control">
+            <select id="buscador-productos" name="productos[]" class="form-control" multiple autocomplete="off"></select>
 
             <hr>
             <div class="container mt-4">
@@ -35,21 +34,21 @@
                     plugin: drag_drop -->
                 <div class="mb-3">
                     <label for="select-frescos" class="form-label">Frescos <i><small>(Drag & Drop)</small></i>:</label>
-                    <select id="select-frescos" multiple autocomplete="off" class="form-select"></select>
+                    <select id="select-frescos" name="productos[]" multiple autocomplete="off" class="form-select"></select>
                 </div>
 
                 <!-- 2. almacén
                     plugin: clear_button -->
                 <div class="mb-3">
                     <label for="select-almacen" class="form-label">Almacén <i><small>(Clear Button)</small></i>:</label>
-                    <select id="select-almacen" multiple autocomplete="off" class="form-select select-almacen"></select>
+                    <select id="select-almacen" name="productos[]" multiple autocomplete="off" class="form-select select-almacen"></select>
                 </div>
 
                 <!-- 3. verduras
                     plugin: checkbox_options -->
                 <div class="mb-3">
                     <label for="select-verduras" class="form-label">Verduras <i><small>(Checkboxes</small>)</i>:</label>
-                    <select id="select-verduras" multiple autocomplete="off" class="form-select"></select>
+                    <select id="select-verduras" name="productos[]" multiple autocomplete="off" class="form-select"></select>
                 </div>
 
                 <!-- 4. frutas
@@ -57,7 +56,7 @@
                 <div class="mb-3">
                     <label for="select-frutas" class="form-label">Frutas <i><small>(Dropdown
                                 Header)</small></i>:</label>
-                    <select id="select-frutas" multiple autocomplete="off" class="form-select"></select>
+                    <select id="select-frutas" name="productos[]" multiple autocomplete="off" class="form-select"></select>
                 </div>
 
                 <!-- 5. carnes
@@ -65,7 +64,7 @@
                 <div class="mb-3">
                     <label for="select-carnes" class="form-label">Carnes <i><small>(Restore on
                                 Backspace)</small></i>:</label>
-                    <select id="select-carnes" multiple autocomplete="off" class="form-select select-carnes"></select>
+                    <select id="select-carnes" name="productos[]" multiple autocomplete="off" class="form-select select-carnes"></select>
                 </div>
 
                 <!-- 6. limpieza
@@ -74,7 +73,7 @@
                     <div class="d-inline-block">
                         <label for="select-limpieza" class="form-label">Limpieza
                             <i><small>(Autogrow)</small></i>:</label>
-                        <select id="select-limpieza" multiple autocomplete="off" class="form-select"></select>
+                        <select id="select-limpieza" name="productos[]" multiple autocomplete="off" class="form-select"></select>
                     </div>
                 </div>
             </div>
