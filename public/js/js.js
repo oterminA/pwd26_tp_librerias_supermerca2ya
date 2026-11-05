@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             optgroupLabelField: "nombre",
             optgroupValueField: "id",
             lockOptgroupOrder: true,
-            plugins: ["optgroup_columns", "remove_button"],
+            plugins: ["optgroup_columns"],
             placeholder: "🔎︎ Buscá tus productos...",
             openOnFocus: true
         });
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         new TomSelect("#select-frescos", {
             ...configuracionBase,
             options: opcionesDe("frescos"),
-            plugins: ["remove_button", "drag_drop"]
+            plugins: ["remove_button"]
         });
 
         new TomSelect("#select-almacen", {
@@ -93,13 +93,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         new TomSelect("#select-carnes", {
             ...configuracionBase,
             options: opcionesDe("carnes"),
-            plugins: ["remove_button", "restore_on_backspace"] //este plugin hace que al presionar la tecla Backspace para eliminar un elemento seleccionado, el texto de dicho elemento se vuelva a colocar dentro del campo de entrada (input) para que se pueda editar en lugar de borrarlo por completo
+            plugins: ["restore_on_backspace"] //este plugin hace que al presionar la tecla Backspace para eliminar un elemento seleccionado, el texto de dicho elemento se vuelva a colocar dentro del campo de entrada (input) para que se pueda editar en lugar de borrarlo por completo
         });
 
         new TomSelect("#select-limpieza", {
             ...configuracionBase,
             options: opcionesDe("limpieza"),
-            plugins: ["remove_button", "input_autogrow"]
+            plugins: ["input_autogrow"]
         });
 
     } catch (error) {

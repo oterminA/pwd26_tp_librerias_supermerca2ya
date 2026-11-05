@@ -30,7 +30,7 @@
         <form action="{{ route('compra.procesar') }}" method="POST">
             @csrf
             {{-- acá va lo del buscador con las listas de productos
-            pluggin: optgroup y remove_button --}}
+            pluggin: optgroup --}}
             <select id="buscador-productos" name="productos[]" class="form-control" multiple
                 autocomplete="off"></select>
 
@@ -39,9 +39,9 @@
                 <h3>Catálogo de productos por categoría</h3>
 
                 <!-- 1. frescos
-                    plugin: drag_drop -->
+                    plugin: remove_button -->
                 <div class="mb-3">
-                    <label for="select-frescos" class="form-label">Frescos <i><small>(Drag & Drop)</small></i>:</label>
+                    <label for="select-frescos" class="form-label">Frescos <i><small>(Remove button)</small></i>:</label>
                     <select id="select-frescos" name="productos[]" multiple autocomplete="off"
                         class="form-select"></select>
                 </div>
@@ -105,9 +105,6 @@
 
     <!-- acá van los scripts de BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
 
     <!-- {{-- así se incluye TOM SELECT al proyecto para darle la logica a los plugins --}} -->
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
