@@ -21,35 +21,20 @@ class CarritoController extends Controller
 
     public function procesarCompra(Request $request)
     {
-        // 1. Recibe el arreglo de IDs que envía el formulario
-        $idsSeleccionados = $request->input('productos', []);
+        $idsSeleccionados = $request->input('productos', []); //se recuperan los ids de los productos 'comprados'
 
-        if (empty($idsSeleccionados)) {
-            return redirect('/')->with('error', 'No seleccionaste ningún producto.'); //esto muestra un cartelito en el formulario con ese msj
+        if (empty($idsSeleccionados)) { //si no hay ningun producto seleccionado se muestra un cartel en la vista usando los mensajes flash de sesión
+            return redirect('/')->with('error', 'No seleccionaste ningún producto.');
         }
 
-        // 2. Lee el archivo JSON desde la subcarpeta data
-        $rutaJson = public_path('data/productos.json');
-        $catalogo = json_decode(file_get_contents($rutaJson), true);
+        $carrito = new Carrito; //se hace un new del modelo
 
-        // 3. Calcula el total y arma la lista de comprados
-        $productosComprados = [];
-        $total = 0;
+        $resultado = $carrito->calcularTotal($idsSeleccionados); //se llama a la funcion del modelo que hace el calculo del total y devuelve los productos comprados
 
-        // Aseguramos que los IDs del formulario se comparen correctamente como números
-        $idsSeleccionados = array_map('intval', $idsSeleccionados);
-
-        foreach ($catalogo as $item) {
-            if (in_array($item['id'], $idsSeleccionados)) {
-                $productosComprados[] = $item;
-                $total += $item['precio'];
-            }
-        }
-
-        // 4. Devuelve la vista con los datos
+        //se devuelve a la vista con los productos comprados y el total de la compra para mostrar en resumen.blade.php
         return view('resumen', [
-            'productos' => $productosComprados,
-            'total' => $total
+            'productos' => $resultado['productos'],
+            'total'     => $resultado['total']
         ]);
     }
 }
