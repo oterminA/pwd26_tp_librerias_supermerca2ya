@@ -23,7 +23,7 @@
                                 <!-- asset() busca la ruta correcta de la imagen dentro de tu carpeta 'public' -->
                                 <img src="{{ asset($producto['imagen']) }}" alt="{{ $producto['nombre'] }}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 5px; margin-right: 15px;">
                                 
-                                <!-- Las llaves dobles {{ }} sirven para imprimir texto en la pantalla -->
+                                {{-- Las llaves dobles sirven para imprimir texto en la pantalla --}}
                                 <span>{{ $producto['nombre'] }}</span>
                             </div>
                             
